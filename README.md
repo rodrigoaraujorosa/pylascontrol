@@ -77,6 +77,23 @@ pc.plot_chart_by_type(df, year=2025, type="saldo")
 
 ## Data Structure
 
+### Input Excel Format
+
+Your Excel file must follow the format shown in `personal_budget_example.xlsx`:
+
+- **Sheet name**: Must be named "ORÇAMENTO PESSOAL"
+- **Column headers** (row 1): Month abbreviations (JAN, FEV, MAR, ABR, MAIO, JUN, JUL, AGO, SET, OUT, NOV, DEZ)
+- **Row labels**: Category groups and specific categories
+- **Group labels** (define transaction types):
+  - `RECEITA`: Income categories
+  - `APORTES`: Investment contributions
+  - Other groups: Expense categories (e.g., DOMÉSTICAS, TRANSPORTE, ENTRETENIMENTO, SAÚDE, etc.)
+- **Values**: Numeric monetary values in the cells
+
+**Important**: Developers must structure their spreadsheet according to this format for the package to work correctly. Refer to `personal_budget_example.xlsx` as a template.
+
+### Output DataFrame
+
 The `load_budget_excel` function returns a DataFrame with the following columns:
 
 - `ano`: Year of the record
@@ -92,7 +109,7 @@ The `load_budget_excel` function returns a DataFrame with the following columns:
 import pylascontrol as pc
 
 # Load data
-df = pc.load_budget_excel("orcamento_pessoal.xlsx", year=2025)
+df = pc.load_budget_excel("personal_budget_example.xlsx", year=2025)
 
 # Generate all chart types
 pc.plot_chart_by_type(df, year=2025, type="line")
