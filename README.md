@@ -44,7 +44,7 @@ pip install -e .
 import pylascontrol as pc
 
 # Load budget data from Excel file
-df = pc.load_budget_excel("orcamento_pessoal.xlsx", year=2025)
+df = pc.load_budget_excel("personal_budget_example.xlsx", year=2025)
 
 # View the data
 print(df.head())
